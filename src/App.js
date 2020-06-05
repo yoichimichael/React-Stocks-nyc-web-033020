@@ -33,12 +33,12 @@ class App extends Component {
     if(sortType === "name"){
       const sorted = this.state.stocks.sort((a,b) => (a.name > b.name) ? 1 : -1)
       this.setState({
-        stocks: sorted
+        displayStocks: sorted
       });
     } else if (sortType === "price"){
       const sorted = this.state.stocks.sort((a,b) => (a.price > b.price) ? 1 : -1)
       this.setState({
-        stocks: sorted
+        displayStocks: sorted
       });
     }
   };
@@ -47,17 +47,17 @@ class App extends Component {
     if(stockType === 'Tech'){
       const filtered = this.state.stocks.filter(stock => stock.type === stockType)
       this.setState({
-        stocks: filtered
+        displayStocks: filtered
       });
     } else if (stockType === 'Finance'){
       const filtered = this.state.stocks.filter(stock => stock.type === stockType)
       this.setState({
-        stocks: filtered
+        displayStocks: filtered
       });
     } else if (stockType === 'Sportswear'){
       const filtered = this.state.stocks.filter(stock => stock.type === stockType)
       this.setState({
-        stocks: filtered
+        displayStocks: filtered
       });
     }
   };
@@ -91,7 +91,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <MainContainer filterStocks={this.filterStocks} sortStocks={this.sortStocks} buyStock={this.buyStock} sellStock={this.sellStock} stocks={this.state.stocks} myStocks={this.state.myStocks}/>
+        <MainContainer filterStocks={this.filterStocks} sortStocks={this.sortStocks} buyStock={this.buyStock} sellStock={this.sellStock} displayStocks={this.state.displayStocks}  myStocks={this.state.myStocks}/>
       </div>
     );
   }

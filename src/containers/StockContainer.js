@@ -9,7 +9,7 @@ class StockContainer extends Component {
   };
 
   renderStocks = () => {
-    const stocks = this.props.stocks
+    const stocks = this.props.displayStocks
     return stocks.map(stock => {
       return (
         <div key={stock.id} onClick={(e) => this.handleClick(stock.id, e)}>
