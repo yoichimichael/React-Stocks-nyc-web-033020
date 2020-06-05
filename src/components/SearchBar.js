@@ -1,23 +1,35 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  
+  const handleChange = (e) => {
+    // console.log(e.target.value, props)
+    const sortType = e.target.value
+    props.sortStocks(sortType)
+  };
+  
+  const handleFilter = (e) => {
+    const filterType = e.target.value
+    props.filterStocks(filterType)
+  };
+
   return (
     <div>
 
       <strong>Sort by:</strong>
       <label>
-        <input type="radio" value="Alphabetically" checked={null} onChange={null}/>
+        <input type="radio" name="sort" value="name" checked={null} onChange={handleChange}/>
         Alphabetically
       </label>
       <label>
-        <input type="radio" value="Price" checked={null} onChange={null}/>
+        <input type="radio" name="sort" value="price" checked={null} onChange={handleChange}/>
         Price
       </label>
       <br/>
 
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleFilter}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
